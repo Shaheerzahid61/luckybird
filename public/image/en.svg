@@ -1,0 +1,37 @@
+<svg width="28px" height="18px" viewBox="0 0 28 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="v-2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Chat--Copy" transform="translate(-280.000000, -66.000000)" fill-rule="nonzero">
+            <g id="Group-9" transform="translate(265.000000, 48.000000)">
+                <g id="Great-Britain_000000" transform="translate(15.000000, 18.000000)">
+                    <rect id="Rectangle-path" fill="#3F51B5" x="0" y="0" width="28" height="18"></rect>
+                    <g id="Group" fill="#FFFFFF">
+                        <polygon id="Shape"
+                                 points="0 2.71028571 13.2427273 10.8867857 15.2339091 7.59535714 2.93236364 0 0 0"></polygon>
+                        <polygon id="Shape"
+                                 points="28 0 25.7033636 0 13.4024545 7.59471429 15.393 10.8867857 28 3.10242857"></polygon>
+                        <polygon id="Shape"
+                                 points="15.393 6.60278571 13.4024545 9.89421429 26.5306364 18 28 18 28 14.3865"></polygon>
+                        <polygon id="Shape"
+                                 points="0 14.7799286 0 18 2.10636364 18 15.2339091 9.89485714 13.2433636 6.60278571"></polygon>
+                        <rect id="Rectangle-path" x="0" y="6.42857143" width="28" height="5.14285714"></rect>
+                        <rect id="Rectangle-path" x="11.4545455" y="0" width="5.09090909" height="18"></rect>
+                    </g>
+                    <g id="Group" fill="#E53935">
+                        <polygon id="Shape"
+                                 points="9.68418182 6.42857143 0 0.449357143 0 1.95621429 7.24309091 6.42857143"></polygon>
+                        <polygon id="Shape"
+                                 points="26.9239091 0 16.5117273 6.42857143 18.9521818 6.42857143 28 0.842785714 28 0"></polygon>
+                        <polygon id="Shape"
+                                 points="19.7794545 11.5714286 28 16.6467857 28 15.1399286 22.2199091 11.5714286"></polygon>
+                        <polygon id="Shape"
+                                 points="8.85690909 11.5714286 0 17.0395714 0 18 0.885818182 18 11.2973636 11.5714286"></polygon>
+                        <rect id="Rectangle-path" x="0" y="7.71428571" width="28" height="2.57142857"></rect>
+                        <rect id="Rectangle-path" x="12.7272727" y="0" width="2.54545455" height="18"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
