@@ -1,56 +1,55 @@
 <template>
-    <header class="header">
-      <!-- Left section of the header -->
-      <div class="header-left">
-        <!-- Logo image -->
-        <img src="/image/download.png" alt="LuckyBird Logo" class="logo" />
-      </div>
-      <!-- Center section of the header -->
-      <div class="header-center">
-        <!-- Buy button -->
-        <button class="btn buy rounded-pill">Buy</button>
-        <!-- Redeem button -->
-        <button class="btn-dark rounded-pill">Redeem</button>
-      </div>
-      <!-- Right section of the header -->
-      <div class="header-right">
-    <!-- Bootstrap dropdown -->
-    <div class="dropdown">
-      <!-- User icon as dropdown toggle -->
-      <button
-        class="btn btn-secondary dropdown-toggle user-icon"
-        type="button"
-        id="dropdownMenuButton"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <i class="fas fa-user-circle"></i>
-      </button>
-      <!-- Dropdown menu -->
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="#">My Info</a></li>
-        <li><a class="dropdown-item" href="#">Setting</a></li>
-        <li><a class="dropdown-item" href="#">Vault</a></li>
-        <li><a class="dropdown-item" href="#">VIP</a></li>
-        <li><a class="dropdown-item" href="#">Transactions</a></li>
-        <li><a class="dropdown-item" href="#">Tickets</a></li>
-        <li><a class="dropdown-item" href="#">Notice</a></li>
-        <li><a class="dropdown-item" href="#">Share</a></li>
-        <li><a class="dropdown-item" href="#">Affiliate</a></li>
-        <li><a class="dropdown-item" href="#">Install App</a></li>
-        <li><a class="dropdown-item" href="#">Live Support</a></li>
-        <li><a class="dropdown-item" href="#">Log Out</a></li>
-      </ul>
+  <header class="header">
+    <!-- Left section of the header -->
+    <div class="header-left">
+      <!-- Logo image -->
+      <img src="/image/download.png" alt="LuckyBird Logo" class="logo" />
     </div>
-  </div>
-    </header>
-  </template>
+    <!-- Center section of the header -->
+    <div class="header-center">
+      <!-- Buy button -->
+      <button class="btn buy rounded-pill">Buy</button>
+      <!-- Redeem button -->
+      <button class="btn-dark rounded-pill">Redeem</button>
+    </div>
+    <!-- Right section of the header -->
+    <div class="header-right">
+      <!-- Bootstrap dropdown -->
+      <div class="dropdown">
+        <!-- User icon as dropdown toggle -->
+        <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user-circle"></i>
+        </button>
+        <!-- Dropdown menu -->
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#">My Info</a></li>
+          <li><a class="dropdown-item" href="#">Setting</a></li>
+          <li><a class="dropdown-item" href="#">Vault</a></li>
+          <li><a class="dropdown-item" href="#">VIP</a></li>
+          <li><a class="dropdown-item" href="#">Transactions</a></li>
+          <li><a class="dropdown-item" href="#">Tickets</a></li>
+          <li><a class="dropdown-item" href="#">Notice</a></li>
+          <li><a class="dropdown-item" href="#">Share</a></li>
+          <li><a class="dropdown-item" href="#">Affiliate</a></li>
+          <li><a class="dropdown-item" href="#">Install App</a></li>
+          <li><a class="dropdown-item" href="#">Live Support</a></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <Authentication />
+</template>
   
   
   <script>
-  export default {
-    name: "HeaderRight",
-  };
+    import Authentication from './authentication/index.vue';
+    export default {
+      components: {
+        Authentication,
+      },
+      name: "HeaderRight",
+    };
   </script>
   
   

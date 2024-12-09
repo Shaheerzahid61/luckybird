@@ -10,6 +10,8 @@
 
     <title>Laravel</title>
 
+    <link href="{{ asset('assets/lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/originals" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,6 +28,7 @@
 
 <body id="app">
     <example-component></example-component>
+    <script src="{{ asset('assets/lib/bootstrap/js/bootstrap.bundle.js') }}"></script>
 </body>
 
 </html>

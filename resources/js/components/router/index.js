@@ -4,10 +4,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 // import Home from '../components/Home.vue';
 // import Signup from '../components/Signup.vue';
 // import happyhourbonus from '../happyhourbonus/happyhourbonus.vue';
-import ExampleComponent from '../ExampleComponent.vue';
+import Home from '../home.vue';
 
 const routes = [
-  { path: '/', component: ExampleComponent },
+  { path: '/', component: Home },
 ];
 
 const router = createRouter({
