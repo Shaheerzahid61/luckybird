@@ -1,77 +1,155 @@
 <template>
-  <div>
-    <!-- Hamburger Menu -->
-    <div id="hamburger-menu" @click="toggleSidebar">
-      <span class="hamburger-icon">{{ isSidebarExpanded ? '✖' : '☰' }}</span>
-    </div>
-    <!-- Sidebar -->
-    <div :class="['sidebar', { expanded: isSidebarExpanded }]">
-      <div id="toggle-btn" @click="toggleSidebar">
-        <span id="toggle-icon" class="text-white fs-6">{{ isSidebarExpanded ? '←' : '➔' }}</span>
-      </div>
-      <ul class="sidebar-menu">
-        <li class="nav-item dropdown">
-          <a 
-            class="nav-link dropdown-toggle" 
-            href="#" 
-            role="button" 
-            data-bs-toggle="dropdown" 
-            aria-expanded="false"
-          >
-            <i class="fa-regular fa-user"></i> <span class="sidebar-menu-text"> Profile</span>
-          </a>
-          <ul :class="['dropdown-menu', 'dropdown-menu-dark', dropdownAlignmentClass]">
-            <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> My Info</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Settings</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-bell-fill"></i> Notice</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-postcard-heart"></i> VIP</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-people-fill"></i> Affiliate</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-tv"></i> Transactions</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-share-fill"></i> Share</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
-          </ul>
-        </li>
-        <hr class="dropdown-divider">
-        <li class="nav-item">
-          <a href="#"><i class="fa-solid fa-ticket"></i> <span class="sidebar-menu-text">Promotions</span></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa-regular fa-star"></i> <span class="sidebar-menu-text">Favourites</span></a>
-        </li>
-      </ul>
+  <div :class="['sidebar', { expanded: isSidebarExpanded }]">
+    <ul class="sidebar-menu">
+      <!-- Profile menu with dropdown -->
+      <li class="nav-item d-block p-2 mb-2">
+        <div class="collapsible-header w-100 d-flex justify-content-between align-items-center text-white" @click="toggleMenuDropdown('profileMenu')">
+          <span>
+            <i class="fa-regular fa-user"></i>
+            <span class="sidebar-menu-text">Profile</span>
+          </span>
+          <span class="ms-1" v-html="getMenuIcon('profileMenu')"></span>
+        </div>
+        <ul v-show="!collapsedDropdownMenus.profileMenu" class="collapsible-content pt-1">
+          <li class="py-2"><a href="#"><i class="fa-regular fa-user me-1"></i> My Info</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-gear-fill me-1"></i> Settings</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-bell-fill me-1"></i> Notice</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-postcard-heart me-1"></i> VIP</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-people-fill me-1"></i> Affiliate</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-tv me-1"></i> Transactions</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-share-fill me-1"></i> Share</a></li>
+          <li class="py-2"><a href="#"><i class="bi bi-box-arrow-right me-1"></i> Logout</a></li>
+        </ul>
+      </li>
+      <!-- Other sidebar items -->
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="fa-solid fa-ticket"></i>
+          <span class="sidebar-menu-text">Promotions</span>
+        </a>
+      </li>
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="fa-regular fa-star"></i>
+          <span class="sidebar-menu-text">Favourites</span>
+        </a>
+      </li>
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="fa-regular fa-clipboard"></i> 
+          <span class="sidebar-menu-text">Task List</span>
+        </a>
+      </li>
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="fa-solid fa-faucet"></i>
+          <span class="sidebar-menu-text">Faucet</span>
+        </a>
+      </li>
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="bi bi-layers-half"></i>
+          <span class="sidebar-menu-text">Seed</span>
+        </a>
+      </li>
+      <li class="nav-item p-2">
+        <a href="#">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <span class="sidebar-menu-text">Provably Fair</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="fa-solid fa-question"></i>
+          <span class="sidebar-menu-text">FAQ</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="bi bi-suit-club"></i>
+          <span class="sidebar-menu-text">Originals</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="bi bi-cash-coin"></i>
+          <span class="sidebar-menu-text">Slots</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="bi bi-joystick"></i>
+          <span class="sidebar-menu-text">Classic Slots</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="bi bi-headset"></i>
+          <span class="sidebar-menu-text">Live Support</span>
+        </a>
+      </li>
+      <li class="nav-item p-2 mb-2">
+        <a href="#">
+          <i class="bi bi-ticket-detailed"></i>
+          <span class="sidebar-menu-text">Tickets</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="bottom-fixed-footer">
+    <div id="toggle-btn" @click="$emit('toggle-sidebar')" class="d-flex align-items-center cursor-pointer">
+      <span v-html="sidebarIcon"></span>
     </div>
   </div>
 </template>
 
-  
 <script>
 export default {
+  props: {
+    isSidebarExpanded: Boolean,
+  },
   data() {
     return {
-      isSidebarExpanded: false,
+      collapsedDropdownMenus: {
+        profileMenu: true, // Initially collapsed
+      },
     };
   },
   computed: {
-    dropdownAlignmentClass() {
-      return this.isSidebarExpanded ? 'dropdown-menu-end' : 'dropdown-menu-start';
+    sidebarIcon() {
+      return this.isSidebarExpanded
+        ? `<i class="fa-solid fa-left-long" style="color: #ffffff;"></i>`
+        : `<i class="fa-solid fa-right-long" style="color: #ffffff;"></i>`;
     },
   },
   methods: {
-    toggleSidebar() {
-      this.isSidebarExpanded = !this.isSidebarExpanded;
+    toggleMenuDropdown(menu) {
+      this.collapsedDropdownMenus[menu] = !this.collapsedDropdownMenus[menu];
+    },
+    getMenuIcon(menu) {
+      if (!this.isSidebarExpanded) {
+        // If sidebar is collapsed, show left/right arrow
+        return this.collapsedDropdownMenus[menu]
+          ? `<i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>`
+          : `<i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>`;
+      } else {
+        // If sidebar is expanded, show down/up arrow
+        return this.collapsedDropdownMenus[menu]
+          ? `<i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i>`
+          : `<i class="fa-solid fa-chevron-up" style="color: #ffffff;"></i>`;
+      }
     },
   },
 };
 </script>
-  
-<style scoped>  
+
+<style scoped>
   .sidebar {
-    position: fixed;
     width: 60px;
     height: 100%;
     background-color: #003366;
     overflow: hidden;
-    transition: width 0.3s, display 0.3s;
+    transition: width 0.3s ease;
     z-index: 1000;
   }
   
@@ -79,16 +157,7 @@ export default {
     width: 200px;
   }
   
-  #toggle-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    background-color: #0b2545;
-    cursor: pointer;
-  }
-  
-  .sidebar-menu {
+  .sidebar .sidebar-menu {
     background-color: rgb(0, 21, 52);
     list-style: none;
     padding: 8px;
@@ -96,81 +165,84 @@ export default {
     height: 100%;
   }
   
-  .sidebar-menu li.nav-item, .sidebar-menu li.nav-item.dropdown {
+  .sidebar .sidebar-menu li.nav-item {
     background-color: rgb(11, 29, 65);
-    padding: 10px;
     display: flex;
-  }
-  .sidebar .sidebar-menu li.nav-item{
     justify-content: center;
   }
-  .sidebar.expanded .sidebar-menu li.nav-item{
+
+  .sidebar.expanded .sidebar-menu li.nav-item {
     justify-content: start;
   }
-  .sidebar-menu li.nav-item a {
+  
+  .sidebar .sidebar-menu li.nav-item a {
     color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
   }
   
-  .sidebar-menu li a .icon {
-    font-size: 18px;
-    width: 30px;
-  }
-  
-  .sidebar-menu li.nav-item a .sidebar-menu-text {
+  .sidebar-menu li.nav-item .sidebar-menu-text {
     margin-left: 10px;
     display: none;
   }
   
-  .sidebar.expanded .sidebar-menu li.nav-item a .sidebar-menu-text {
+  .sidebar.expanded .sidebar-menu li.nav-item .sidebar-menu-text {
     display: inline;
   }
-  
-  /* Hamburger Menu Styling */
-  #hamburger-menu {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1100;
-    background-color: #003366;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 5px;
+
+  .collapsible-header {
+    position: relative;
     cursor: pointer;
   }
-  
-  /* Responsive Design */
+
+  .collapsible-header:hover .collapsible-content {
+    display: block; /* Show dropdown when hovered */
+  }
+
+  .collapsible-content {
+    position: absolute;
+    left: 60px;
+    background-color: rgb(11, 29, 65);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1050;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.expanded .collapsible-content {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    padding: 10px 0px;
+  }
+
+  .bottom-fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background-color: rgb(11, 29, 65);
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .sidebar {
       display: none;
       width: 0;
     }
-  
+
     .sidebar.expanded {
       display: block;
       width: 200px;
     }
-  
-    #hamburger-menu {
-      display: block;
-    }
-  
-    #toggle-btn {
-      display: none;
+
+    .bottom-fixed-footer {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
   }
-  ul.dropdown-menu.show {
-    background: #002645;
-}
-li.nav-item.dropdown {
-    background: rgb(0 21 52);
-}
-hr.dropdown-divider {
-    height: 5px;
-}
-  </style>
-  
+</style>

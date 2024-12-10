@@ -1,51 +1,19 @@
 <template>
    <div>
-    <luckyHeader />
-    <!-- Other content -->
-  
-<!-- <div class="col-md-12"> -->
     <mainPage />
-  <!-- </div> -->
 </div>
 </template>
 
 <script>
-//   import Signup from './SignUp.vue';
-import luckyHeader from './luckyHeader.vue';
 
 import HeroBanner from './Header.vue';
 import mainPage from './mainPage.vue';
-// import signup from './SignUp.vue';
-// import Caraousal from "./slider/carousal.vue";
-// import Sliderline from "./slider/sliderbase.vue";
-// import UserPromo from './promo/PromoCards.vue';
-// import UserPromo2 from './promo/PromoCards2.vue';
-// import PlayOffMarket from './PlayOffMarket.vue';
-// import GamesGrid from './GamesGrid.vue';
-// import Footer from './Footer.vue';
-// import SocialMediaPlatform from './SocialMediaPlatform.vue';
-// import ScrollDownSection from './ScrollDownSection.vue';
-// import HeaderMain from './HeaderMain.vue';
 
 
 export default {
   components: {
-    // HeaderMain,
     mainPage,
-    luckyHeader,
-
-    // signup,
     HeroBanner,
-    // homepage,
-    // ScrollDownSection,
-    // Caraousal,
-    //   Sliderline,
-    // UserPromo,
-    // UserPromo2,
-    // PlayOffMarket,
-    // GamesGrid,
-    // SocialMediaPlatform,
-    // Footer,
   },
   methods: {
     toggleRotation() {

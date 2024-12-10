@@ -1,146 +1,82 @@
 <template>
-  <header class="header">
-    <!-- Left section of the header -->
-    <div class="header-left">
-      <!-- Logo image -->
-      <img src="/image/download.png" alt="LuckyBird Logo" class="logo" />
-    </div>
-    <!-- Center section of the header -->
-    <div class="header-center">
-      <!-- Buy button -->
-      <button class="btn buy rounded-pill">Buy</button>
-      <!-- Redeem button -->
-      <button class="btn-dark rounded-pill">Redeem</button>
-    </div>
-    <!-- Right section of the header -->
-    <div class="header-right">
-      <!-- Bootstrap dropdown -->
-      <div class="dropdown">
-        <!-- User icon as dropdown toggle -->
-        <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-user-circle"></i>
-        </button>
-        <!-- Dropdown menu -->
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">My Info</a></li>
-          <li><a class="dropdown-item" href="#">Setting</a></li>
-          <li><a class="dropdown-item" href="#">Vault</a></li>
-          <li><a class="dropdown-item" href="#">VIP</a></li>
-          <li><a class="dropdown-item" href="#">Transactions</a></li>
-          <li><a class="dropdown-item" href="#">Tickets</a></li>
-          <li><a class="dropdown-item" href="#">Notice</a></li>
-          <li><a class="dropdown-item" href="#">Share</a></li>
-          <li><a class="dropdown-item" href="#">Affiliate</a></li>
-          <li><a class="dropdown-item" href="#">Install App</a></li>
-          <li><a class="dropdown-item" href="#">Live Support</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
-        </ul>
+  <div class="row align-items-center">
+    <div class="col-auto px-0">
+      <div id="toggle-btn" @click="$emit('toggle-sidebar')" class="d-none d-md-flex align-items-center cursor-pointer">
+        <span v-html="sidebarIcon"></span>
       </div>
     </div>
-  </header>
-  <Authentication />
+    <div class="col">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto">
+            <a class="navbar-brand" href="#">
+              <img src="/image/download.png" alt="Logo" class="logo">
+            </a>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary rounded-pill me-2" style="width: 80px;">Buy</button>
+            <button class="btn btn-light rounded-pill" style="width: 80px;">Redeem</button>
+          </div>
+          <div class="col-auto">
+            <ul class="navbar-nav d-flex">
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">My Info</a></li>
+                  <li><a class="dropdown-item" href="#">Setting</a></li>
+                  <li><a class="dropdown-item" href="#">Vault</a></li>
+                  <li><a class="dropdown-item" href="#">VIP</a></li>
+                  <li><a class="dropdown-item" href="#">Transactions</a></li>
+                  <li><a class="dropdown-item" href="#">Tickets</a></li>
+                  <li><a class="dropdown-item" href="#">Notice</a></li>
+                  <li><a class="dropdown-item" href="#">Share</a></li>
+                  <li><a class="dropdown-item" href="#">Affiliate</a></li>
+                  <li><a class="dropdown-item" href="#">Install App</a></li>
+                  <li><a class="dropdown-item" href="#">Live Support</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
   
   
-  <script>
-    import Authentication from './authentication/index.vue';
+<script>
     export default {
-      components: {
-        Authentication,
+      props: {
+        isSidebarExpanded: Boolean,
+      },
+      computed: {
+        sidebarIcon() {
+          return this.isSidebarExpanded
+            ? `<i class="fa-solid fa-left-long" style="color: #ffffff;"></i>`
+            : `<i class="fa-solid fa-right-long" style="color: #ffffff;"></i>`;
+        },
       },
       name: "HeaderRight",
     };
-  </script>
+</script>
   
   
   
-  <style scoped>
-  .user-icon {
-  font-size: 24px; /* Adjust size */
-  color: white; /* Match your theme */
-  cursor: pointer;
-}
-
-.user-icon:hover {
-  color: #00c86e; /* Add a hover effect */
-}
-  /* Header container */
-  .header {
+<style scoped>
+  #toggle-btn {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #0b2545; /* Dark navy blue */
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Left Section */
-  .header-left .logo {
-    height: 40px;
-  }
-  
-  /* Center Buttons */
-  .header-center {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .btn-green {
-    background-color: #00c86e; /* Green */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white;
+    height: 60px;
+    width: 60px;
     cursor: pointer;
+    padding: 8px 20px;
   }
-  
-  .btn-dark {
-    background-color: #1a2b49; /* Dark button */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
+  header .logo{
+    width: 180px;
   }
-  
-  /* Right Dropdown */
-  .header-right {
-    position: relative;
-  }
-  
-  .user-icon {
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-  }
-  
- /* Dropdown Menu Styles */
-/* Customize the user icon */
-.user-icon {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-.user-icon:hover {
-  color: #00c86e;
-}
-.buy  {
-    background-color: #20e793;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: black;
-    cursor: pointer;
-}
-.buy:hover {
-    background: #9cfed4;
-    color: black;
-}
-  </style>
+</style>
   
