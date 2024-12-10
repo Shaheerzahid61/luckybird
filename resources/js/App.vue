@@ -9,8 +9,9 @@
       <div class="sidebar-container flex-shrink-0 position-relative">
         <sidebar :isSidebarExpanded="isSidebarExpanded" @toggle-sidebar="toggleSidebar" />
       </div>
-      <div class="content-container flex-grow-1 ms-3">
+      <div class="content-container flex-grow-1">
         <router-view></router-view>
+        <Footer/>
       </div>
     </div>
     <Authentication />
@@ -21,6 +22,7 @@
 import sidebar from './components/sidebar.vue';
 import luckyHeader from './components/luckyHeader.vue';
 import Authentication from './components/authentication/index.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   data() {
@@ -37,6 +39,7 @@ export default {
     sidebar,
     luckyHeader,
     Authentication,
+    Footer
   },
   name: 'App',
 };

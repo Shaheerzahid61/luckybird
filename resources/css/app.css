@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ol{
+    list-style: decimal;
+    padding: revert;
+
+}
+ul{
+    list-style: circle;
+    padding: revert;
+
+}
