@@ -1,191 +1,158 @@
 <template>
-  <footer class="footer">
-    <div style="margin-left:20%;">
-      <div class="row">
-        <!-- Logo and Download Section -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="logo-section">
-            <div style="display:flex;gap:5%;align-items:center">
-            <img
-              src="https://stag.bitsky.bet/_next/image?url=https%3A%2F%2Fbitsky-stag-storage.s3.us-east-1.amazonaws.com%2Fassets%2FapplicationSettings%2Fapplication-settings%2Flogo.png&w=3840&q=75"
-              alt="Bitsky Logo"
-              class="footer-logo mb-2"
-            />
-            <h5 class="text-white download-title">Download APK</h5>
-            <div class="download-icon text-center mb-3">
-              <i class="bi bi-cloud-arrow-down-fill text-white"></i>
-            </div>
-          </div>
-            
-            <p class="footer-description">
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </div>
+  <footer class="text-white py-5">
 
-        <!-- Links Section -->
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-white section-title">Blogs</h5>
+    <div class="container">
+      <!-- Top Section -->
+      <div class="row mb-4">
+        <!-- Casino Section -->
+        <div class="col-md-2">
+          <h6 class="fw-bold">Casino</h6>
           <ul class="list-unstyled">
-            <li v-for="(item, index) in blogs" :key="index">
-              <a href="#" class="text-muted">{{ item }}</a>
-            </li>
+            <li><a href="#" class="text-white text-decoration-none">Promotions</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Slots</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Dice</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Limbo</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Plinko</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Tower</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-white section-title">Bonus</h5>
+        <!-- My Account Section -->
+        <div class="col-md-2">
+          <h6 class="fw-bold">My Account</h6>
           <ul class="list-unstyled">
-            <li v-for="(item, index) in bonuses" :key="index">
-              <a href="#" class="text-muted">{{ item }}</a>
-            </li>
+            <li><a href="#" class="text-white text-decoration-none">My Info</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Setting</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Faucet</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Transaction</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Affiliate</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-white section-title">Pages</h5>
+        <!-- Features Section -->
+        <div class="col-md-2">
+          <h6 class="fw-bold">Features</h6>
           <ul class="list-unstyled">
-            <li v-for="(item, index) in pages" :key="index">
-              <a :href="item.link" class="text-muted">{{ item.text }}</a>
-            </li>
+            <li><a href="#" class="text-white text-decoration-none">Chest & Card</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Task List</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Tickets</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Vault</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Install App</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-white section-title">Contact</h5>
+        <!-- Support Section -->
+        <div class="col-md-2">
+          <h6 class="fw-bold">Support</h6>
           <ul class="list-unstyled">
-            <li><span class="text-muted">Support:</span> <a href="mailto:Admin@Bitsky.In" class="text-muted">Admin@Bitsky.In</a></li>
-            <li><span class="text-muted">Partners:</span> <a href="mailto:Admin@Partner.Com" class="text-muted">Admin@Partner.Com</a></li>
-            <li><span class="text-muted">Legal:</span> <a href="mailto:Admin@Legal.Com" class="text-muted">Admin@Legal.Com</a></li>
-            <li><span class="text-muted">Application Name:</span> <a href="#" class="text-muted">BitSky</a></li>
+            <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Provably Fair</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Vip Rules</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Terms of use</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Live Support</a></li>
           </ul>
-          <div class="d-flex mt-2 social-icons">
-            <a href="#" class="text-muted me-3"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="text-muted"><i class="bi bi-youtube"></i></a>
+        </div>
+
+        <!-- Community Section -->
+        <div class="col-md-4">
+          <h6 class="fw-bold">Community</h6>
+          <div class="d-flex align-items-center gap-3">
+            <a href="#" class="btn btn-primary rounded-pill">
+              <i class="bi bi-twitter me-2"></i> Twitter
+            </a>
+            <a href="#" class="btn btn-info rounded-pill">
+              <i class="bi bi-telegram me-2"></i> Telegram
+            </a>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Bottom Footer Text -->
-    <div class="container text-center mt-3">
-      <p class="text-muted">2024 Bitsky.bet, All Rights Reserved</p>
+      <!-- Divider -->
+      <hr class="border-light" />
+
+      <!-- Media Promotion Section -->
+      <div class="blurred-container">
+        <div class="content">
+      <div class="text-center">
+        <h6 class="fw-bold mb-3">Media Promotion</h6>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <template v-for="(image, index) in mediaLogos" :key="index">
+            <img :src="image.src" :alt="image.alt" class="footer-logo" />
+          </template>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
   </footer>
+  <FooterImages />
+
+<FooterImagesThird />
+<LastFooter />
 </template>
 
 <script>
+import FooterImages from './FooterImages.vue';
+import FooterImagesThird from './FooterImagesThird.vue';
+import LastFooter from './LastFooter.vue';
 export default {
-  name: "Footer",
   data() {
     return {
-      blogs: [
-        "How Can I Add Funds To My Bitsky Account?",
-        "Gameroom Online 777",
-        "American Roulette Wheel",
-        "Baccarat Professional Series",
-        "Aviator Casino Online",
-        "Paradise Games Casino",
-        "Ultra Panda",
-        "Bonus Poker",
-        "Mafia",
-        "Milky Way Casino",
-        "Vegas Sweeps",
-        "BlackJack",
-        "Rocketman",
-        "Piggy Gold"
+      mediaLogos: [
+        { src: "/image/new/casino.png", alt: "Casino.org" },
+        { src: "/image/new/coincu.svg", alt: "Coincu" }, // Updated to SVG
+        { src: "/image/new/onlinecasinos.png", alt: "Online Casinos" },
+        { src: "/image/new/sportsbook.png", alt: "Sportsbook Review" },
+        { src: "/image/new/sweepskings.png", alt: "Sweep Kings" },
+        { src: "/image/new/sweepstakes.png", alt: "Sweepstakes" },
+        { src: "/image/new/SweepstakeCasino.svg", alt: "SweepstakeCasino" }, // Updated to SVG
+        { src: "/image/new/unitedgambling.svg", alt: "unitedgambling" }, // Updated to SVG
+        { src: "/image/new/lkh.svg", alt: "lkh" }, // Updated to SVG
+        { src: "/image/new/cardschat.svg", alt: "cardschat" }, // Updated to SVG
+        { src: "/image/new/hjfv.svg", alt: "hjfv" }, // Updated to SVG
+        { src: "/image/new/gambleusa.svg", alt: "gambleusa" }, // Updated to SVG
+        { src: "/image/new/sweepstake.svg", alt: "sweepstake" }, // Updated to SVG
+        { src: "/image/new/SweepsGods.svg", alt: "SweepsGods" }, // Updated to SVG
+        { src: "/image/new/deadspin.svg", alt: "deadspin" }, // Updated to SVG
       ],
-      bonuses: ["Bonus Item 1", "Bonus Item 2", "Bonus Item 3"],
-      pages: [
-        { text: "Blogs", link: "#" },
-        { text: "Privacy Policy", link: "#" },
-        { text: "Responsible Gambling", link: "#" },
-        { text: "Vegas Sweeps", link: "#" },
-        { text: "Bonus Terms EN", link: "#" },
-        { text: "FAQ", link: "#" },
-        { text: "Player", link: "#" },
-        { text: "General Terms & Conditions", link: "#" },
-        { text: "TestQr", link: "#" },
-        { text: "English", link: "#" },
-      ],
+
     };
   },
+  components: {
+
+    FooterImages,
+    FooterImagesThird,
+    LastFooter,
+  },
+  name: 'App',
 };
 </script>
 
 <style scoped>
-a {
-  text-decoration: none;
-}
-.footer {
-  position: relative;
-    background: url(https://stag.bitsky.bet/_next/static/media/landing-bg-img.a1eff019.png) no-repeat center center / cover, /* Overlay background image */ linear-gradient(to bottom, rgba(255, 0, 119, 0), rgb(191 2 184 / 0%)), /* Gradient overlay */ url(https://stag.bitsky.bet/_next/static/media/footer-bg-mask.b6e1f703.svg) no-repeat center center / cover, /* Main background image */ #fff;
-    background-size: cover;
-    color: #aa77a8;
-    z-index: 2;
-    overflow: hidden;
-    padding-top: 100px;
-
+footer.text-white.py-5 {
+  background: #011e41;
 }
 
 .footer-logo {
-  max-width: 100px;
+    height: 60px;
+    width: 175px;
 }
-
-.download-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #aa77a8;
-}
-
-.download-icon {
-  background-color: #ff0077;
-  color: #aa77a8;
-  border-radius: 50%;
-  padding: 10px;
-  display: inline-flex;
-  align-items: center;
+.blurred-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: rgba(0, 31, 65, 0.7); /* Semi-transparent #001f41 */
+  -webkit-backdrop-filter: blur(10px); /* Safari and modern browsers */
+  backdrop-filter: blur(10px); /* Standard property */
+  display: flex;
   justify-content: center;
-  font-size: 1.8em;
+  align-items: center;
+  border-radius: 10px;
 }
 
-.footer-description {
-  color: #aa77a8;;
-  font-size: 0.9em;
-}
-
-.section-title {
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #aa77a8;
-}
-
-.text-muted {
-  color: #aa77a8 !important;
-}
-
-.list-unstyled a:hover {
-  color: #aa77a8;
-  text-decoration: underline;
-}
-
-.social-icons a {
-  color: #aa77a8;
-}
-
-.social-icons a:hover {
-  color: #aa77a8;
-}
-
-h5 {
-  font-weight: bold;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.me-3 {
-  margin-right: 1rem;
+.content {
+  color: white;
+  text-align: center;
+  padding: 40px;
 }
 </style>

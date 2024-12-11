@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Sign In Modal -->
       <div v-if="isSigninModalOpen" class="modal fade show" id="signinModal" aria-hidden="false" aria-labelledby="signinModalLabel" tabindex="-1" style="display: block;">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
@@ -83,7 +83,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   export default {
     name: "Authentication",
@@ -111,13 +111,13 @@
     }
   };
   </script>
-  
+
   <style scoped>
   #signupModal .modal, #signinModal .modal {
     display: none;
     transition: opacity 0.3s ease;
   }
-  
+
   #signupModal .modal.show, #signinModal .modal.show {
     display: block;
     opacity: 1;
@@ -138,4 +138,4 @@
     border-bottom: 2px solid #20e793;
     font-size: 22px;
   }
-  </style>  
+  </style>
