@@ -1,4 +1,5 @@
 <template>
+  <div class="container color">
     <div>
      <!-- <luckyHeader /> -->
      <!-- Other content -->
@@ -9,8 +10,10 @@
     <RecentBigWin/>
     <SecondSlider/>
     <ThirdSlider/>
-    <!-- <TableFirst/> -->
+    <TableFirst/>
+    <TableSecond/>
  </div>
+</div>
  </template>
 
  <script>
@@ -22,7 +25,8 @@
  import RecentBigWin from './RecentBigWin.vue';
  import SecondSlider from './SecondSlider.vue';
  import ThirdSlider from './ThirdSlider.vue';
-//  import TableFirst from './TableFirst.vue';
+import TableFirst from './TableFirst.vue';
+import TableSecond from './TableSecond.vue';
  // import signup from './SignUp.vue';
  // import Caraousal from "./slider/carousal.vue";
  // import Sliderline from "./slider/sliderbase.vue";
@@ -44,6 +48,8 @@
      RecentBigWin,
      SecondSlider,
      ThirdSlider,
+     TableFirst,
+     TableSecond,
 
      HeroBanner,
 
@@ -103,5 +109,8 @@
  }
  .slider-item:hover {
      transform: scale(1.05);
+ }
+ .color{
+  background-color: #011e41 ;
  }
  </style>

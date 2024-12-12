@@ -297,9 +297,10 @@ export default {
     background: #001434;
 }
 button.btn.position-fixed.bottom-0.end-0.m-3.rounded-circle {
-    background: #0b1d41;
+  background: #001434;
     color: #ffffff;
     font-size: x-large;
+    z-index: 999;
 }
 div#chat_nav {
     background: #0b1d41;
