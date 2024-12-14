@@ -92,6 +92,10 @@
 </template>
 
 <script>
+<<<<<<< Updated upstream
+=======
+// import Footer from './components/Footer.vue';
+>>>>>>> Stashed changes
 import FooterImages from './FooterImages.vue';
 import FooterImagesThird from './FooterImagesThird.vue';
 import LastFooter from './LastFooter.vue';

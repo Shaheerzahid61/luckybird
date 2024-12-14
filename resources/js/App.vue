@@ -20,8 +20,11 @@
 
 <script>
 import sidebar from './components/sidebar.vue';
+<<<<<<< Updated upstream
 import luckyHeader from './components/luckyHeader.vue';
 import Authentication from './components/authentication/index.vue';
+=======
+>>>>>>> Stashed changes
 import Footer from './components/Footer.vue';
 
 export default {
@@ -37,9 +40,13 @@ export default {
   },
   components: {
     sidebar,
+<<<<<<< Updated upstream
     luckyHeader,
     Authentication,
     Footer
+=======
+    Footer,
+>>>>>>> Stashed changes
   },
   name: 'App',
 };
