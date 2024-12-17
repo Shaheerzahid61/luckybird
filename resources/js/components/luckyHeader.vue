@@ -18,8 +18,14 @@
             <button class="btn btn-light rounded-pill" style="width: 80px;">Redeem</button>
           </div>
           <div class="col-auto">
-            <ul class="navbar-nav d-flex">
-              <li class="nav-item dropdown">
+            <ul class="d-flex list-unstyled">
+              <li class="nav-item px-2">
+          <a class="nav-link" href="/register">Join Now</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+              <li class="nav-item px-2 dropdown">
                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-user"></i>
                 </a>

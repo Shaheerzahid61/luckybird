@@ -1,15 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Import your components that will be used for different routes
-// import Home from '../components/Home.vue';
-// import Signup from '../components/Signup.vue';
-// import happyhourbonus from '../happyhourbonus/happyhourbonus.vue';
 import Home from "../home.vue";
 import FAQ from "../faq.vue";
 import Setting from "../Setting.vue";
 import TermsOfUse from "../TermsOfUse.vue";
 import dice from "../dice.vue";
-
+import promotions from "../promotions.vue";
+import login from "../authentication/login.vue";
+import register from "../authentication/register.vue";
 
 const routes = [
     { path: "/", component: Home },
@@ -17,6 +16,9 @@ const routes = [
     { path: "/Setting", component: Setting },
     { path: "/TermsOfUse", component: TermsOfUse },
     { path: "/dice", component: dice },
+    { path: "/promotions", component: promotions },
+    { path: "/login", component: login, name: "login" },
+    { path: "/register", component: register, name: "register" },
 
 ];
 

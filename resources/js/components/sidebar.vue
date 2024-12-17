@@ -10,7 +10,7 @@
           </span>
           <span class="ms-1" v-html="getMenuIcon('profileMenu')"></span>
         </div>
-        <ul v-show="!collapsedDropdownMenus.profileMenu" class="collapsible-content pt-1">
+        <ul v-show="!collapsedDropdownMenus.profileMenu" class="collapsible-content pt-1 list-unstyled">
           <li class="py-2"><a href="#"><i class="fa-regular fa-user me-1"></i> My Info</a></li>
           <li class="py-2"><a href="#"><i class="bi bi-gear-fill me-1"></i> Settings</a></li>
           <li class="py-2"><a href="#"><i class="bi bi-bell-fill me-1"></i> Notice</a></li>
@@ -23,7 +23,7 @@
       </li>
       <!-- Other sidebar items -->
       <li class="nav-item p-2">
-        <a href="#">
+        <a href="/promotions">
           <i class="fa-solid fa-ticket"></i>
           <span class="sidebar-menu-text">Promotions</span>
         </a>
@@ -150,7 +150,7 @@ export default {
     background-color: #003366;
     overflow: hidden;
     transition: width 0.3s ease;
-    z-index: 1000;
+    overflow-y: auto;
   }
   
   .sidebar.expanded {
