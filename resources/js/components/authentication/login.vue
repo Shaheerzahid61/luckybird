@@ -72,10 +72,10 @@
   
             <!-- Register Button -->
             <div class="mb-3">
-              <button class="btn btn-primary w-100" :disabled="!isFormValid">
-                Login
-              </button>
-            </div>
+  <button class="btn btn-primary w-100" :disabled="!isFormValid" @click="login">
+    Login
+  </button>
+</div>
 
             <div class="mb-3 text-center">
                 <a href="#" class="link-primary text-decoration-underline">Forgot your password</a>
@@ -103,9 +103,12 @@
     </section>
   </template>
   
-<script>
+  <script>
+  import axios from 'axios';
+  import toastr from 'toastr';
+  import 'toastr/build/toastr.min.css';
   import LandscapeAd from './../sections/ad-landscape-banner.vue';
-
+  
   export default {
     components: {
       LandscapeAd,
@@ -158,8 +161,33 @@
       validatePassword() {
         return this.isLengthValid && this.hasUppercase && this.hasNumber;
       },
+      async login() {
+        if (!this.isFormValid) {
+          toastr.error('Please fill in valid email and password.');
+          return;
+        }
+  
+        try {
+          const response = await axios.post('/login', {
+            email: this.email,
+            password: this.password,
+          });
+  
+          if (response.data.success) {
+            toastr.success(response.data.message);
+            this.$router.push({ name: 'home' }); // Redirect to dashboard or other routes
+          }
+        } catch (error) {
+          if (error.response.status === 401) {
+            toastr.error('Invalid email or password.');
+          } else {
+            toastr.error('An error occurred. Please try again.');
+          }
+        }
+      },
     },
   };
-</script>
+  </script>
+  
   
 <style></style>

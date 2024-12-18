@@ -11,7 +11,7 @@ import login from "../authentication/login.vue";
 import register from "../authentication/register.vue";
 
 const routes = [
-    { path: "/", component: Home },
+    { path: "/", component: Home, name: "home" },
     { path: "/faq", component: FAQ },
     { path: "/Setting", component: Setting },
     { path: "/TermsOfUse", component: TermsOfUse },

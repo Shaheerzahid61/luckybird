@@ -383,7 +383,7 @@
 						</div>
 						<div class="mb-3">
 							<!-- Disable the button if termsAccepted is false -->
-							<button class="btn btn-primary w-100" :disabled="!termsAccepted">Play Now</button>
+							<button class="btn btn-primary w-100" :disabled="!termsAccepted" @click="submitForm">Play Now</button>
 						</div>
 					</div>
 					<p class="text-center">Already got an account? <a href="/login" class="link-primary text-decoration-underline">Login</a></p>
@@ -394,135 +394,171 @@
 </template>
   
 <script>
-  import LandscapeAd from "./../sections/ad-landscape-banner.vue";
-  
-  export default {
-    components: {
-      LandscapeAd,
-    },
-    data() {
-      return {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        country: "",
-        birthMonth: "",
-        birthDay: "",
-        birthYear: "",
-        isPasswordVisible: false,
-        emailTouched: false,
-        passwordTouched: false,
-        firstNameTouched: false,
-        lastNameTouched: false,
-        countryTouched: false,
-        birthMonthTouched: false,
-        birthDayTouched: false,
-        birthYearTouched: false,
-        termsAccepted: false,
-        currentStep: 1,
-      };
-    },
-    computed: {
+import axios from 'axios';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+import LandscapeAd from "./../sections/ad-landscape-banner.vue";
+
+export default {
+  components: {
+    LandscapeAd,
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      country: "",
+      birthMonth: "",
+      birthDay: "",
+      birthYear: "",
+      isPasswordVisible: false,
+      emailTouched: false,
+      passwordTouched: false,
+      firstNameTouched: false,
+      lastNameTouched: false,
+      countryTouched: false,
+      birthMonthTouched: false,
+      birthDayTouched: false,
+      birthYearTouched: false,
+      termsAccepted: false,
+      currentStep: 1,
+    };
+  },
+  computed: {
     emailClass() {
-        return this.emailTouched ? (this.validateEmail() ? "is-valid" : "is-invalid") : "";
+      return this.emailTouched ? (this.validateEmail() ? "is-valid" : "is-invalid") : "";
     },
     passwordClass() {
-        return this.passwordTouched ? (this.validatePassword() ? "" : "is-invalid") : "";
+      return this.passwordTouched ? (this.validatePassword() ? "" : "is-invalid") : "";
     },
     firstNameClass() {
-        return this.firstNameTouched ? (this.isFirstNameValid ? "is-valid" : "is-invalid") : "";
+      return this.firstNameTouched ? (this.isFirstNameValid ? "is-valid" : "is-invalid") : "";
     },
     lastNameClass() {
-        return this.lastNameTouched ? (this.isLastNameValid ? "is-valid" : "is-invalid") : "";
+      return this.lastNameTouched ? (this.isLastNameValid ? "is-valid" : "is-invalid") : "";
     },
     countryClass() {
-        return this.countryTouched ? (this.country ? "is-valid" : "is-invalid") : "";
+      return this.countryTouched ? (this.country ? "is-valid" : "is-invalid") : "";
     },
     birthMonthClass() {
-        return this.birthMonthTouched ? (this.birthMonth ? "is-valid" : "is-invalid") : "";
+      return this.birthMonthTouched ? (this.birthMonth ? "is-valid" : "is-invalid") : "";
     },
     birthDayClass() {
-        return this.birthDayTouched ? (this.isBirthDayValid ? "is-valid" : "is-invalid") : "";
+      return this.birthDayTouched ? (this.isBirthDayValid ? "is-valid" : "is-invalid") : "";
     },
     birthYearClass() {
-        return this.birthYearTouched ? (this.isBirthYearValid ? "is-valid" : "is-invalid") : "";
+      return this.birthYearTouched ? (this.isBirthYearValid ? "is-valid" : "is-invalid") : "";
     },
     isFormValid() {
-        return this.validateEmail() && this.validatePassword();
+      return this.validateEmail() && this.validatePassword();
     },
     isLengthValid() {
-        return this.password.length >= 8 && this.password.length <= 20;
+      return this.password.length >= 8 && this.password.length <= 20;
     },
     hasUppercase() {
-        return /[A-Z]/.test(this.password);
+      return /[A-Z]/.test(this.password);
     },
     hasNumber() {
-        return /\d/.test(this.password);
+      return /\d/.test(this.password);
     },
     isFirstNameValid() {
-        return this.firstName.length >= 2;
+      return this.firstName.length >= 2;
     },
     isLastNameValid() {
-        return this.lastName.length >= 2;
+      return this.lastName.length >= 2;
     },
     isBirthDayValid() {
-        const day = parseInt(this.birthDay);
-        return day >= 1 && day <= 31; // Basic validation for day (you can add more checks for specific months later)
+      const day = parseInt(this.birthDay);
+      return day >= 1 && day <= 31;
     },
     isBirthYearValid() {
-        const year = parseInt(this.birthYear);
-        return year >= 1900 && year <= new Date().getFullYear(); // Example of a valid year range
+      const year = parseInt(this.birthYear);
+      return year >= 1900 && year <= new Date().getFullYear();
     },
-    },
-    methods: {
-      togglePasswordVisibility() {
-        this.isPasswordVisible = !this.isPasswordVisible;
-      },
-      validateEmail() {
-        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return regex.test(this.email);
-      },
-      validatePassword() {
-        return this.isLengthValid && this.hasUppercase && this.hasNumber;
-      },
-      nextStep() {
-        if (this.currentStep < 3) {
-          this.currentStep++;
-        }
-      },
-      previousStep() {
-        if (this.currentStep > 1) {
-          this.currentStep--;
-        }
-      },
-      completedStepClass(step) {
-        if (this.currentStep > step) {
-          return "bg-success border-success text-white";
-        }
-        if (this.currentStep === step) {
-          return "border-success text-success";
-        }
-        return "";
-      },
-      clearEmailError() {
-        this.emailTouched = true;
-      },
-      clearPasswordError() {
-        this.passwordTouched = true;
-      },
-      filterNumbers(field) {
-    // This method will filter out any non-numeric characters
-    if (field === 'birthDay') {
-      this.birthDay = this.birthDay.replace(/\D/g, ''); // Replace all non-digit characters
-    } else if (field === 'birthYear') {
-      this.birthYear = this.birthYear.replace(/\D/g, ''); // Replace all non-digit characters
-    }
   },
+  methods: {
+    togglePasswordVisibility() {
+      this.isPasswordVisible = !this.isPasswordVisible;
     },
-  };
-</script>
+    validateEmail() {
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return regex.test(this.email);
+    },
+    validatePassword() {
+      return this.isLengthValid && this.hasUppercase && this.hasNumber;
+    },
+    nextStep() {
+      if (this.currentStep < 3) {
+        this.currentStep++;
+      }
+    },
+    previousStep() {
+      if (this.currentStep > 1) {
+        this.currentStep--;
+      }
+    },
+    completedStepClass(step) {
+      if (this.currentStep > step) {
+        return "bg-success border-success text-white";
+      }
+      if (this.currentStep === step) {
+        return "border-success text-success";
+      }
+      return "";
+    },
+    clearEmailError() {
+      this.emailTouched = true;
+    },
+    clearPasswordError() {
+      this.passwordTouched = true;
+    },
+    filterNumbers(field) {
+      if (field === "birthDay") {
+        this.birthDay = this.birthDay.replace(/\D/g, ""); // Replace all non-digit characters
+      } else if (field === "birthYear") {
+        this.birthYear = this.birthYear.replace(/\D/g, ""); // Replace all non-digit characters
+      }
+    },
+	async submitForm() {
+  if (!this.termsAccepted) {
+    toastr.error("You must accept the terms to proceed.");
+    return;
+  }
+
+  try {
+    const response = await axios.post('/register', {
+      email: this.email,
+      password: this.password,
+      first_name: this.firstName,
+      last_name: this.lastName,
+      country: this.country,
+      birth_date: `${this.birthYear}-${this.birthMonth}-${this.birthDay}`,
+      terms_accepted: this.termsAccepted,
+    });
+
+    if (response.data.success) {
+      toastr.success('Registration successful!');
+      this.$router.push({ name: 'login' }); // Redirect to the login page
+    }
+  } catch (error) {
+    console.error(error);
+    toastr.error('There was an issue with registration. Please try again.');
+  }
+}
+
+  },
   
+};
+toastr.options = {
+  closeButton: true,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  timeOut: "3000", // Duration in milliseconds
+};
+
+</script>
   <style>
   /* Add custom styles if needed */
   </style>  

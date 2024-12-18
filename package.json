@@ -9,7 +9,7 @@
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^4.5.0",
         "autoprefixer": "^10.4.20",
-        "axios": "^1.7.4",
+        "axios": "^1.7.9",
         "bootstrap": "^5.3.3",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.0",
@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "swiper": "^11.1.14",
+        "toastr": "^2.1.4",
         "vue-router": "^4.4.5",
         "vue3-flip-countdown": "^0.1.6"
     }
