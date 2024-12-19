@@ -7,6 +7,7 @@ import Setting from "../Setting.vue";
 import TermsOfUse from "../TermsOfUse.vue";
 import dice from "../dice.vue";
 import promotions from "../promotions.vue";
+import games from "../games.vue";
 import login from "../authentication/login.vue";
 import register from "../authentication/register.vue";
 
@@ -17,9 +18,9 @@ const routes = [
     { path: "/TermsOfUse", component: TermsOfUse },
     { path: "/dice", component: dice },
     { path: "/promotions", component: promotions },
+    { path: "/games", component: games },
     { path: "/login", component: login, name: "login" },
     { path: "/register", component: register, name: "register" },
-
 ];
 
 const router = createRouter({

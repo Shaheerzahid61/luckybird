@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import activeTaskComponent from './modals/active-tast-list.vue';
+import activeTaskComponent from './modals/active-task-list.vue';
 import claimedTaskComponent from './modals/claimed-task-list.vue';
 export default {
   props: {
