@@ -2,7 +2,10 @@
   <!-- Heading -->
   <div class="row justify-content-between align-items-center py-2 mb-1">
     <div class="col-auto">
-      <h2 class="fs-5 fw-bold mb-0">{{ heading }}</h2>
+      <div class="d-flex">
+        <i v-if="headingIcon" :class="[headingIcon, 'text-primary', 'rotating-icon', 'me-2']"></i>
+        <h2 class="fs-6 fw-bold mb-0">{{ heading }}</h2>
+      </div>
     </div>
     <div class="col-auto">
       <!-- Left Arrow -->
@@ -19,7 +22,6 @@
       >
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-      <a v-if="url" :href="url" class="link-primary text-decoration-underline">View All</a>
     </div>
   </div>
 
@@ -36,8 +38,15 @@
       }"
       :style="{ display: index >= currentStart && index < currentStart + visibleCards ? 'block' : 'none' }"
     >
-      <div class="card hover-slide-up">
-        <img :src="item.image" :alt="item.alt" class="w-100 card-img" />
+      <div class="card hover-slide-up bg-transparent border-0">
+        <!-- Image -->
+        <img :src="item.image" :alt="item.name" class="card-img-top" />
+        
+        <!-- Card Content -->
+        <div class="card-body text-center p-0">
+          <h5 class="card-title text-muted mb-0 text-truncate">{{ item.name }}</h5>
+          <p class="card-text text-success fw-bold  mb-0">{{ item.score }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +59,7 @@ export default {
       type: String,
       required: true,
     },
-    url: {
+    headingIcon: {
       type: String,
       default: null,
     },
@@ -82,26 +91,20 @@ export default {
   data() {
     return {
       items: [
-        { image: "assets/images/gaming/1.webp", alt: "Gaming 1" },
-        { image: "assets/images/gaming/2.webp", alt: "Gaming 2" },
-        { image: "assets/images/gaming/3.webp", alt: "Gaming 3" },
-        { image: "assets/images/gaming/4.webp", alt: "Gaming 4" },
-        { image: "assets/images/gaming/5.webp", alt: "Gaming 5" },
-        { image: "assets/images/gaming/6.webp", alt: "Gaming 6" },
-        { image: "assets/images/gaming/7.webp", alt: "Gaming 7" },
-        { image: "assets/images/gaming/8.webp", alt: "Gaming 8" },
-        { image: "assets/images/gaming/9.webp", alt: "Gaming 9" },
-        { image: "assets/images/gaming/10.webp", alt: "Gaming 10" },
-        { image: "assets/images/gaming/11.webp", alt: "Gaming 11" },
-        { image: "assets/images/gaming/12.webp", alt: "Gaming 12" },
-        { image: "assets/images/gaming/13.webp", alt: "Gaming 13" },
-        { image: "assets/images/gaming/14.webp", alt: "Gaming 14" },
-        { image: "assets/images/gaming/15.webp", alt: "Gaming 15" },
-        { image: "assets/images/gaming/16.webp", alt: "Gaming 16" },
-        { image: "assets/images/gaming/17.webp", alt: "Gaming 17" },
-        { image: "assets/images/gaming/18.webp", alt: "Gaming 18" },
-        { image: "assets/images/gaming/19.webp", alt: "Gaming 19" },
-        { image: "assets/images/gaming/20.webp", alt: "Gaming 20" },
+        { image: '/image/new/sticky_piggy.webp', name: 'Hidden', score: '5442.00 SC' },
+        { image: '/image/new/LuckyLadyMoonMegaways.webp', name: 'Hidden', score: '5906.00 SC' },
+        { image: '/image/new/JungleRave.webp', name: 'td1236', score: '10683.50 SC' },
+        { image: '/image/new/ChickenRush.webp', name: 'Hidden', score: '5663.78 SC' },
+        { image: '/image/new/TrampDay.webp', name: 'Hidden', score: '5397.00 SC' },
+        { image: '/image/new/pussnboots.webp', name: 'Hidden', score: '7561.20 SC' },
+        { image: '/image/new/BuffaloHoldandWin.webp', name: 'Hidden', score: '8050.49 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
+        { image: '/image/new/HowlingforGold.webp', name: 'Notcorn', score: '5375.25 SC' },
       ],
       visibleCards: 0, // Tracks visible card count
       currentStart: 0, // Starting index of visible cards
@@ -255,6 +258,21 @@ export default {
   }
   to {
     transform: translateX(0);
+  }
+}
+.rotating-icon {
+  animation: rotate 3s linear infinite; /* Rotate the icon */
+  display: inline-block; /* Ensure the icon stays in place */
+  transform-origin: 50% 50%; /* Ensure the rotation happens from the center */
+  font-size: 18px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Start at 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate to 360 degrees */
   }
 }
 </style>

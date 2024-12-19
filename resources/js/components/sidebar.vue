@@ -35,10 +35,22 @@
         </a>
       </li>
       <li class="nav-item p-2">
-        <a href="#">
+        <a href="javascript:void(0)" @click="isActiveTaskModalVisible = true">
           <i class="fa-regular fa-clipboard"></i> 
           <span class="sidebar-menu-text">Task List</span>
         </a>
+        <!-- Modals -->
+        <activeTaskComponent
+          :isVisible="isActiveTaskModalVisible"
+          @update:isVisible="isActiveTaskModalVisible = $event"
+          @switch-modal="handleSwitchModal"
+        />
+        <!-- Modals -->
+        <claimedTaskComponent
+          :isVisible="isClaimedTaskModalVisible"
+          @update:isVisible="isClaimedTaskModalVisible = $event"
+          @switch-modal="handleSwitchModal"
+        />
       </li>
       <li class="nav-item p-2">
         <a href="#">
@@ -104,12 +116,20 @@
 </template>
 
 <script>
+import activeTaskComponent from './modals/active-tast-list.vue';
+import claimedTaskComponent from './modals/claimed-task-list.vue';
 export default {
   props: {
     isSidebarExpanded: Boolean,
   },
+  components: {
+    activeTaskComponent,
+    claimedTaskComponent,
+  },
   data() {
     return {
+      isActiveTaskModalVisible: false,
+      isClaimedTaskModalVisible: false,
       collapsedDropdownMenus: {
         profileMenu: true, // Initially collapsed
       },
@@ -123,6 +143,10 @@ export default {
     },
   },
   methods: {
+    handleSwitchModal(modal) {
+      this.isActiveTaskModalVisible = modal === 'active';
+      this.isClaimedTaskModalVisible = modal === 'claimed';
+    },
     toggleMenuDropdown(menu) {
       this.collapsedDropdownMenus[menu] = !this.collapsedDropdownMenus[menu];
     },

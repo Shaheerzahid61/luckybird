@@ -14,34 +14,40 @@
             </a>
           </div>
           <div class="col-auto">
-            <button class="btn btn-primary rounded-pill me-2" style="width: 80px;">Buy</button>
-            <button class="btn btn-light rounded-pill" style="width: 80px;">Redeem</button>
+            <button @click="isBuyModalVisible = true" class="btn btn-primary rounded-pill me-2" style="width: 80px;">Buy</button>
+            <!-- Modals -->
+            <buyModalComponent
+              :isVisible="isBuyModalVisible"
+              @update:isVisible="isBuyModalVisible = $event"
+              @switch-modal="handleSwitchModal"
+            />
+            <button @click="isRedeemModalVisible = true" class="btn btn-light rounded-pill" style="width: 80px;">Redeem</button>
+            <redeemModalComponent
+              :isVisible="isRedeemModalVisible"
+              @update:isVisible="isRedeemModalVisible = $event"
+              @switch-modal="handleSwitchModal"
+            />
+            <!-- Modals -->
+            <rainModalComponent
+              :isVisible="isRainModalVisible"
+              @update:isVisible="isRainModalVisible = $event"
+              @switch-modal="handleSwitchModal"
+            />
+            <!-- Modals -->
+            <tipModalComponent
+              :isVisible="isTipModalVisible"
+              @update:isVisible="isTipModalVisible = $event"
+              @switch-modal="handleSwitchModal"
+            />
           </div>
           <div class="col-auto">
             <ul class="d-flex list-unstyled">
-              <li class="nav-item px-2">
-          <a class="nav-link" href="/register">Join Now</a>
-        </li>
-        <li class="nav-item px-2">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
+              <!-- User menu -->
               <li class="nav-item px-2 dropdown">
                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">My Info</a></li>
-                  <li><a class="dropdown-item" href="#">Setting</a></li>
-                  <li><a class="dropdown-item" href="#">Vault</a></li>
-                  <li><a class="dropdown-item" href="#">VIP</a></li>
-                  <li><a class="dropdown-item" href="#">Transactions</a></li>
-                  <li><a class="dropdown-item" href="#">Tickets</a></li>
-                  <li><a class="dropdown-item" href="#">Notice</a></li>
-                  <li><a class="dropdown-item" href="#">Share</a></li>
-                  <li><a class="dropdown-item" href="#">Affiliate</a></li>
-                  <li><a class="dropdown-item" href="#">Install App</a></li>
-                  <li><a class="dropdown-item" href="#">Live Support</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
               </li>
@@ -52,25 +58,45 @@
     </div>
   </div>
 </template>
-  
-  
+
 <script>
-    export default {
-      props: {
-        isSidebarExpanded: Boolean,
-      },
-      computed: {
-        sidebarIcon() {
-          return this.isSidebarExpanded
-            ? `<i class="fa-solid fa-left-long" style="color: #ffffff;"></i>`
-            : `<i class="fa-solid fa-right-long" style="color: #ffffff;"></i>`;
-        },
-      },
-      name: "HeaderRight",
+import buyModalComponent from './modals/buy.vue';
+import redeemModalComponent from './modals/redeem.vue';
+import rainModalComponent from './modals/rain.vue';
+import tipModalComponent from './modals/tip.vue';
+
+export default {
+  components: {
+    buyModalComponent,
+    redeemModalComponent,
+    rainModalComponent,
+    tipModalComponent,
+  },
+  data() {
+    return {
+      isBuyModalVisible: false,
+      isRedeemModalVisible: false,
+      isRainModalVisible: false,
+      isTipModalVisible: false,
     };
+  },
+  methods: {
+    handleSwitchModal(modal) {
+      this.isBuyModalVisible = modal === 'buy';
+      this.isRedeemModalVisible = modal === 'redeem';
+      this.isRainModalVisible = modal === 'rain';
+      this.isTipModalVisible = modal === 'tip';
+    },
+  },
+  computed: {
+    sidebarIcon() {
+      return this.isSidebarExpanded
+        ? `<i class="fa-solid fa-left-long" style="color: #ffffff;"></i>`
+        : `<i class="fa-solid fa-right-long" style="color: #ffffff;"></i>`;
+    },
+  },
+};
 </script>
-  
-  
   
 <style scoped>
   #toggle-btn {

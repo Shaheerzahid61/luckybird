@@ -94,6 +94,7 @@ header {
 
 .content-container {
   flex-grow: 1;
+  transition: margin-left 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -102,7 +103,7 @@ header {
   }
 
   .content-container {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 }
 </style>
