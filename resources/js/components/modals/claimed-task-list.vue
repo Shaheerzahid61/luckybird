@@ -9,30 +9,91 @@
           <div class="modal-body">
             <!-- Add buttons -->
             <ul class="nav nav-pills justify-content-center mb-3">
-                <li class="nav-item">
-                    <a class="nav-link" @click="switchToActiveTask" href="javascript:void(0)">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-lin rounded-pill activek" @click="switchToClaimedTask" href="javascript:void(0)">Claimed</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link" @click="switchToActiveTask" href="javascript:void(0)">Active</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link rounded-pill active" @click="switchToClaimedTask" href="javascript:void(0)">Claimed</a>
+              </li>
             </ul>
-            <p class="text-primary fw-bold mb-2"><small>Get 1 treasure chest for every purchase of 10$</small></p>
-            <div class="row g-4">
-              <!-- Cards for purchase options -->
-              <div v-for="(card, index) in cards" :key="index" class="col-6">
-                <div class="card small">
-                  <div class="card-header border-bottom py-1">
-                    <i class="fa-solid fa-dollar-sign text-success me-1"></i> {{ card.freeCash }}
-                  </div>
-                  <div class="card-body text-center">
-                    <img :src="card.image" class="img-fluid mx-auto" :alt="card.altText" width="65">
-                    <p class="my-2 fw-bold lh-sm">{{ card.goldAmount }} <br> {{ card.goldText }}</p>
-                    <button class="btn btn-primary rounded-1 w-100 fw-bold py-1">{{ card.price }}</button>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div
+                class="accordion-item mb-2 border-0"
+                v-for="(task, index) in tasks"
+                :key="index"
+              >
+                <h2 class="accordion-header" :id="'flush-heading' + index">
+                  <button
+                    class="accordion-button py-2 collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    :data-bs-target="'#flush-collapse' + index"
+                    aria-expanded="false"
+                    :aria-controls="'flush-collapse' + index"
+                  >
+                    <div class="small fw-bold">
+                      <span>{{ task.title }}</span> <br />
+                      <div class="text-success d-flex align-items-center">
+                        <img
+                          src="assets/images/gold-icon.png"
+                          alt="Gold Icon"
+                          width="15"
+                          class="d-inline-flex me-1"
+                        />
+                        <span class="me-1">{{ task.goldReward }}</span>
+                        <img
+                          src="assets/images/usd-icon.webp"
+                          alt="USD Icon"
+                          width="15"
+                          class="d-inline-flex me-1"
+                        />
+                        <span>{{ task.usdReward }}</span>
+                      </div>
+                    </div>
+                  </button>
+                </h2>
+                <div
+                  :id="'flush-collapse' + index"
+                  class="accordion-collapse collapse"
+                  :aria-labelledby="'flush-heading' + index"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    <p class="small">Mission Target:</p>
+                    <ol class="small text-muted">
+                      <li v-for="(target, tIndex) in task.targets" :key="tIndex">{{ target }}</li>
+                    </ol>
+                    <hr class="my-2" />
+                    <p class="small">Mission Rewards</p>
+                    <div class="my-2">
+                      <div class="row">
+                        <div class="col-auto px-1">
+                          <div class="card position-relative p-1">
+                            <img src="assets/images/gold-icon.png" alt="Gold Icons" style="height: 30px;" width="30" />
+                            <div class="position-absolute bottom-0 start-0 w-100">
+                              <p class="small mb-0 text-center alert-dark lh-1" style="background-color: #00000050;">
+                                {{ task.missionReward }}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto px-1">
+                          <div class="card position-relative p-1">
+                            <img src="assets/images/usd-icon.webp" alt="Gold Icons" style="height: 30px;" width="30" />
+                            <div class="position-absolute bottom-0 start-0 w-100">
+                              <p class="small mb-0 text-center alert-dark lh-1" style="background-color: #00000050;">
+                                {{ task.usdReward }}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary w-100">Go Now</button>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="text-muted py-2 text-center"><small>Maximum purchase of $9000 USD per day.</small></p>
           </div>
         </div>
       </div>
@@ -54,46 +115,13 @@
     },
     data() {
       return {
-        cards: [
+        tasks: [
           {
-            freeCash: "10.2 Free SC Cash",
-            image: "/assets/images/gold-icon.png",
-            altText: "Gold Icons",
-            goldAmount: "100,000",
-            goldText: "Gold Icons",
-            price: "$10",
-          },
-          {
-            freeCash: "20.5 Free SC Cash",
-            image: "/assets/images/gold-icon.png",
-            altText: "Gold Icons",
-            goldAmount: "200,000",
-            goldText: "Gold Icons",
-            price: "$20",
-          },
-          {
-            freeCash: "30.7 Free SC Cash",
-            image: "/assets/images/gold-icon.png",
-            altText: "Gold Icons",
-            goldAmount: "300,000",
-            goldText: "Gold Icons",
-            price: "$30",
-          },
-          {
-            freeCash: "50.0 Free SC Cash",
-            image: "/assets/images/gold-icon.png",
-            altText: "Gold Icons",
-            goldAmount: "500,000",
-            goldText: "Gold Icons",
-            price: "$50",
-          },
-          {
-            freeCash: "100.0 Free SC Cash",
-            image: "/assets/images/gold-icon.png",
-            altText: "Gold Icons",
-            goldAmount: "1,000,000",
-            goldText: "Gold Icons",
-            price: "$100",
+            title: "First Buy Bonus",
+            goldReward: 50000,
+            usdReward: 50000,
+            targets: ["Purchases of more than $20", "Complete KYC verification"],
+            missionReward: 500,
           },
         ],
       };
@@ -113,5 +141,7 @@
   </script>
   
   <style scoped>
-  /* Add custom styles here if needed */
+    .accordion-item .collapse.show {
+      visibility: visible;
+    }
   </style>
