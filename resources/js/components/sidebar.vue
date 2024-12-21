@@ -11,14 +11,40 @@
           <span class="ms-1" v-html="getMenuIcon('profileMenu')"></span>
         </div>
         <ul v-show="!collapsedDropdownMenus.profileMenu" class="collapsible-content pt-1 list-unstyled">
-          <li class="py-2"><a href="#"><i class="fa-regular fa-user me-1"></i> My Info</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-gear-fill me-1"></i> Settings</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-bell-fill me-1"></i> Notice</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-postcard-heart me-1"></i> VIP</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-people-fill me-1"></i> Affiliate</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-tv me-1"></i> Transactions</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-share-fill me-1"></i> Share</a></li>
-          <li class="py-2"><a href="#"><i class="bi bi-box-arrow-right me-1"></i> Logout</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="fa-regular fa-user me-1"></i> My Info</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-gear-fill me-1"></i> Settings</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-bell-fill me-1"></i> Notice</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-postcard-heart me-1"></i> VIP</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-people-fill me-1"></i> Affiliate</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-tv me-1"></i> Transactions</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-share-fill me-1"></i> Share</a></li>
+          <li class="py-2"><a href="#" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Logout</a></li>
+        </ul>
+      </li>
+      <li class="nav-item d-block p-2 mb-2">
+        <div class="collapsible-header w-100 d-flex justify-content-between align-items-center text-white" @click="toggleMenuDropdown('gamesMenu')">
+          <span>
+            <i class="fa-solid fa-chess-queen"></i>
+            <span class="sidebar-menu-text">Games</span>
+          </span>
+          <span class="ms-1" v-html="getMenuIcon('gamesMenu')"></span>
+        </div>
+        <ul v-show="!collapsedDropdownMenus.gamesMenu" class="collapsible-content pt-1 list-unstyled">
+          <li class="py-2"><a href="/games" class="text-nowrap"><i class="fa-solid fa-chess-queen me-1"></i> All</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="fa-solid fa-fire-flame-curved me-1"></i> Popular</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="fa-solid fa-clover me-1"></i> New & Exclusive</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-postcard-heart me-1"></i> Spin Wins</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-people-fill me-1"></i> Jackpot Play</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-tv me-1"></i> Hold and Win</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-share-fill me-1"></i> Social Live Casino</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Slingo</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Clasic Slots</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Megaways</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Cascading</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> All New</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Online Slots</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Play The Future</a></li>
+          <li class="py-2"><a href="/games/category-name" class="text-nowrap"><i class="bi bi-box-arrow-right me-1"></i> Unlimited Play</a></li>
         </ul>
       </li>
       <!-- Other sidebar items -->
@@ -131,7 +157,8 @@ export default {
       isActiveTaskModalVisible: false,
       isClaimedTaskModalVisible: false,
       collapsedDropdownMenus: {
-        profileMenu: true, // Initially collapsed
+        profileMenu: true,
+        gamesMenu: true,
       },
     };
   },

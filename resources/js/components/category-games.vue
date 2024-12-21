@@ -1,7 +1,7 @@
 <template>
     <section class="py-3">
         <div class="container-fluid">
-            <gamesSearch />
+            <gamesSearch imagePrefix="../" />
         </div>
     </section>
     <section class="py-3">
@@ -35,27 +35,7 @@
     </section>
     <section class="py-3">
         <div class="container-fluid">
-            <GamingCarousel heading="New & Exclusive" url="#" dafaultCarousel="3" smCarousel="4" mdCarousel="5" lgCarousel="6" xlCarousel="7" carouselAnimationTime="5000" />
-        </div>
-    </section>
-    <section class="py-3">
-        <div class="container-fluid">
-            <WinnerCardCarousel heading="Recent Big Wins" headingIcon="fa-solid fa-earth-americas" dafaultCarousel="4" smCarousel="5" mdCarousel="8" lgCarousel="10" xlCarousel="12" carouselAnimationTime="3000" />
-        </div>
-    </section>
-    <section class="py-3">
-        <div class="container-fluid">
-            <GamingCarousel heading="Social Live Casino" url="#" dafaultCarousel="3" smCarousel="4" mdCarousel="5" lgCarousel="6" xlCarousel="7" carouselAnimationTime="4000" />
-        </div>
-    </section>
-    <section class="py-3">
-        <div class="container-fluid">
-            <GamingCarousel heading="New Games" url="#" dafaultCarousel="3" smCarousel="4" mdCarousel="5" lgCarousel="6" xlCarousel="7" carouselAnimationTime="6000" />
-        </div>
-    </section>
-    <section class="my-3 d-none d-md-block">
-        <div class="container-fluid">
-            <WinningUsers />
+            <games imagePrefix="../" />
         </div>
     </section>
 </template>
@@ -64,18 +44,14 @@
 import gamesSearch from './sections/games-search.vue';
 import breadcrumb from './sections/breadcrumb.vue';
 import gamesCategoryFilter from './sections/games-category-filter.vue';
-import GamingCarousel from './sections/gaming-carousel.vue';
-import WinnerCardCarousel from './sections/winner-card-carousel.vue';
-import WinningUsers from './sections/winning-users.vue';
+import games from './sections/gaming-grid.vue';
 
 export default {
     components: {
         gamesSearch,
         breadcrumb,
         gamesCategoryFilter,
-        GamingCarousel,
-        WinnerCardCarousel,
-        WinningUsers,
+        games,
     },
     data() {
         return {

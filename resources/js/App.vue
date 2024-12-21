@@ -8,9 +8,18 @@
     </header>
     <main>
       <div v-if="isLoading" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <!-- Bootstrap Spinner for Loading -->
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <!-- Custom Loading Animation with Dots and Icons -->
+        <div class="loading-container">
+          <div class="dots" v-if="!isIconVisible">
+            <span class="dot dot-1 me-1 text-white"></span>
+            <span class="dot dot-2 me-1 text-white"></span>
+            <span class="dot dot-3 text-white"></span>
+          </div>
+          <div class="icons" v-if="isIconVisible">
+            <i class="fa-solid fa-chess-king me-1 text-white"></i>
+            <i class="fa-solid fa-dice me-1 text-white"></i>
+            <i class="fa-solid fa-clover text-white"></i>
+          </div>
         </div>
       </div>
       <div v-else class="d-flex overflow-hidden">
@@ -43,6 +52,7 @@ export default {
     return {
       isSidebarExpanded: false,
       isLoading: true, // Set loading state to true initially
+      isIconVisible: false, // To toggle between dots and icons
     };
   },
   methods: {
@@ -70,6 +80,11 @@ export default {
     setTimeout(() => {
       this.isLoading = false; // Set loading to false once the page is fully loaded
     }, 2000); // Adjust this timeout to match your loading duration
+
+    // Toggle between dots and icons every 1 second
+    setInterval(() => {
+      this.isIconVisible = !this.isIconVisible;
+    }, 1000); // 1 second interval
   },
 };
 </script>
@@ -99,11 +114,74 @@ header {
 
 @media (max-width: 768px) {
   .sidebar-container {
-    width: 100%;
+    width: auto;
   }
 
   .content-container {
     margin-left: 0 !important;
+  }
+}
+
+/* Styles for the loading container */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Styles for the bouncing dots */
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  animation: bounce 1s infinite alternate;
+}
+
+.dot-1 {
+  animation-delay: 0s;
+}
+
+.dot-2 {
+  animation-delay: 0.2s;
+}
+
+.dot-3 {
+  animation-delay: 0.4s;
+}
+
+/* Animation for the bouncing dots */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Styles for the icons */
+.icons {
+  display: flex;
+  gap: 10px;
+  color: white;
+  font-size: 24px;
+  animation: iconBounce 1s infinite alternate;
+}
+
+/* Animation for the icons */
+@keyframes iconBounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
   }
 }
 </style>

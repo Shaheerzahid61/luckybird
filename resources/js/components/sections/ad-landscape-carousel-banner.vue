@@ -15,10 +15,6 @@
         class="banner-card"
         v-for="(item, index) in items"
         :key="index"
-        :class="{
-          'slide-left': slideDirection === 'left' && index >= currentStart && index < currentStart + visibleCards,
-          'slide-right': slideDirection === 'right' && index >= currentStart && index < currentStart + visibleCards,
-        }"
         :style="{ display: index >= currentStart && index < currentStart + visibleCards ? 'block' : 'none' }"
       >
         <div class="card bg-transparent border-0">
@@ -206,33 +202,5 @@ export default {
   }
 .banner-card-arrows:hover {
   background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Slide Left Animation */
-.slide-left {
-  animation: slideLeft 0.5s ease-out forwards;
-}
-
-@keyframes slideLeft {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Slide Right Animation */
-.slide-right {
-  animation: slideRight 0.5s ease-out forwards;
-}
-
-@keyframes slideRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 </style>

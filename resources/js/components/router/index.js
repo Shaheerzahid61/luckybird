@@ -8,6 +8,7 @@ import TermsOfUse from "../TermsOfUse.vue";
 import dice from "../dice.vue";
 import promotions from "../promotions.vue";
 import games from "../games.vue";
+import categoryGames from "../category-games.vue";
 import login from "../authentication/login.vue";
 import register from "../authentication/register.vue";
 
@@ -19,6 +20,7 @@ const routes = [
     { path: "/dice", component: dice },
     { path: "/promotions", component: promotions },
     { path: "/games", component: games },
+    { path: "/games/category-name", component: categoryGames },
     { path: "/login", component: login, name: "login" },
     { path: "/register", component: register, name: "register" },
 ];

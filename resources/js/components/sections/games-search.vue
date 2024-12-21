@@ -33,7 +33,7 @@
                     :key="index"
                 >
                     <a href="#" class="card" @click="selectGame(game)">
-                        <img :src="game.image" :alt="game.name" width="100" />
+                        <img :src="imagePrefix + game.image" :alt="game.name" width="100" />
                     </a>
                 </div>
 
@@ -52,6 +52,12 @@
 
 <script>
 export default {
+    props: {
+        imagePrefix: {
+            type: String,
+            default: '',
+        },
+    },
     data() {
         return {
             searchQuery: '', // Holds the value of the search input

@@ -9,7 +9,7 @@
             >
                 <a href="#" class="card hover-slide-up rounded-4 border-0 overflow-hidden">
                     <img 
-                        :src="item.image" 
+                        :src="imagePrefix + item.image" 
                         :alt="item.alt" 
                         class="w-100 rounded-4 card-img" 
                         height="250"
@@ -32,6 +32,12 @@
 
 <script>
 export default {
+    props: {
+        imagePrefix: {
+            type: String,
+            default: '',
+        },
+    },
     data() {
         return {
             // Array of items to loop through
